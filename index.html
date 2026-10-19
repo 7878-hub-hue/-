@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4eee1">
+<meta name="description" content="22道宫廷抉择，16种人物人格，4处剧情分支。测测若你入宫，能活成谁？">
+<title>若你入宫，能活成谁？｜宫廷人格测试</title>
+<style>
+
+:root {
+  --ink:#213b37; --muted:#68776d; --wine:#a3453b; --wine-dark:#81342f;
+  --gold:#b1874c; --light-gold:#d9bb84; --paper:#fcf8ef;
+  --cream:#f4eee1; --line:#ded3bf; --green:#dce7dd; --white:#fffdfa;
+  --shadow:0 24px 70px rgba(43,52,37,.11); --serif:"Songti SC","STSong","Noto Serif CJK SC","SimSun",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:var(--cream);color:var(--ink);font-family:var(--sans)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 0% 0%,#fff7e4 0%,transparent 40%),radial-gradient(circle at 100% 15%,#e6ebe0 0%,transparent 34%),repeating-linear-gradient(90deg,rgba(95,74,53,.013) 0 1px,transparent 1px 5px)}
+button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #b58d4d;outline-offset:3px}
+button:disabled{opacity:.38;cursor:not-allowed}a{color:inherit}.wrap{width:min(1060px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:25px 0 16px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:2px}
+.brand-seal{display:grid;place-items:center;width:37px;height:37px;color:var(--white);font-family:var(--serif);font-size:21px;background:var(--wine);border:3px double #f3d7b0;box-shadow:0 0 0 1px var(--wine)}
+.issue{font:11px var(--sans);letter-spacing:2.3px;color:var(--muted);text-align:right}
+.hairline{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+main{min-height:calc(100vh - 162px)}.footer{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 0 27px;font-size:11px;color:#7c8277;line-height:1.8}
+.footer span:last-child{text-align:right}
+.intro-shell{position:relative;overflow:hidden;margin-top:25px;background:var(--paper);border:1px solid #ded0b8;box-shadow:var(--shadow);border-radius:15px}
+.intro-shell::after{position:absolute;content:"";pointer-events:none;inset:11px;border:1px solid rgba(177,135,76,.25);border-radius:8px}
+.intro-content{display:grid;grid-template-columns:1.02fr 1fr;min-height:550px}
+.intro-copy{position:relative;z-index:1;padding:78px 20px 70px 62px}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--wine);font-size:12px;letter-spacing:3px;font-weight:700}
+.eyebrow::before{content:"";display:block;width:25px;height:1px;background:var(--wine)}
+.intro-title{font-family:var(--serif);font-weight:700;letter-spacing:5px;line-height:1.45;font-size:clamp(42px,5vw,68px);margin:32px 0 9px}
+.intro-title em{font-style:normal;color:var(--wine)}
+.intro-subtitle{font:20px/1.7 var(--serif);letter-spacing:3px;color:#657268;margin:10px 0 22px}
+.intro-description{font-size:14px;line-height:2.1;color:#5e6d63;max-width:420px}
+.start-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:38px}
+.primary-btn{padding:15px 27px;background:var(--wine);color:white;border:1px solid var(--wine);border-radius:7px;box-shadow:0 7px 17px #a3453b20;font-weight:650;letter-spacing:1px}
+.primary-btn:hover:not(:disabled){background:var(--wine-dark)}
+.secondary-btn{padding:14px 23px;background:transparent;color:var(--ink);border:1px solid var(--gold);border-radius:7px;font-weight:600}
+.secondary-btn:hover:not(:disabled){background:#f2e8d7}
+.text-btn{background:none;border:none;color:var(--muted);padding:10px 0;text-decoration:underline;text-underline-offset:5px}
+.intro-stats{display:flex;gap:0;margin-top:48px}
+.intro-stat{min-width:100px;padding:0 22px;border-right:1px solid var(--line);text-align:center}
+.intro-stat:first-child{padding-left:0}.intro-stat:last-child{border-right:none}
+.intro-stat b{font:30px var(--serif);color:var(--ink)}.intro-stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:1px;margin-top:4px}
+.art-panel{position:relative;overflow:hidden;min-height:440px;background:linear-gradient(165deg,#f1e9d6 15%,#e1e9dd 84%)}
+.art-panel:before{content:"";position:absolute;z-index:1;left:0;top:0;bottom:0;width:16%;background:linear-gradient(90deg,var(--paper),transparent)}
+.palace-art{display:block;width:100%;height:100%;min-height:540px;object-fit:cover}
+.floating-petal{position:absolute;z-index:2;width:13px;height:10px;background:#b96356;border-radius:85% 15% 82% 18%;opacity:.5;animation:drift 9s linear infinite}
+.floating-petal.one{left:19%;top:10%}.floating-petal.two{left:70%;top:27%;animation-delay:-3s}.floating-petal.three{left:55%;top:63%;animation-delay:-6s}
+@keyframes drift{0%{transform:translate(0,-15px) rotate(5deg)}50%{transform:translate(22px,45px) rotate(120deg)}100%{transform:translate(-11px,115px) rotate(240deg);opacity:0}}
+.below-intro{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 4px}
+.promise{padding:22px 24px;background:#ffffff77;border:1px solid #dfd4c3;border-radius:10px;line-height:1.75}
+.promise .num{font:12px var(--serif);color:var(--wine);letter-spacing:2px}
+.promise b{font-size:15px;display:block;margin:6px 0}.promise p{font-size:12px;color:var(--muted);margin:0}
+.quiz-layout{max-width:800px;margin:30px auto 25px}
+.quiz-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:0 4px 19px}
+.chapter-small{color:var(--wine);letter-spacing:2.5px;font-size:12px;font-weight:700}
+.chapter-title{font:27px var(--serif);letter-spacing:3px;margin:9px 0 4px}
+.chapter-desc{font-size:12px;color:var(--muted);line-height:1.8}
+.question-count{font:30px var(--serif);white-space:nowrap;color:var(--ink)}
+.question-count span{font-size:15px;color:#899186}
+.progress{height:5px;background:#dadacb;border-radius:99px;overflow:hidden;margin-bottom:24px}
+.progress>i{display:block;height:100%;background:linear-gradient(90deg,#af8a56,#a4433b);border-radius:99px;transition:width .3s}
+.question-card{position:relative;overflow:hidden;background:var(--paper);border:1px solid #d9c7ad;border-radius:13px;box-shadow:var(--shadow);padding:46px 48px 36px}
+.question-card:before{content:"";position:absolute;left:18px;right:18px;top:17px;height:1px;background:linear-gradient(90deg,transparent,#c4aa7f,transparent)}
+.question-kicker{font-size:11px;letter-spacing:3px;color:var(--wine);font-weight:700}
+.question-title{font:26px/1.7 var(--serif);letter-spacing:1px;margin:12px 0 21px}
+.branch-note{border-left:3px solid var(--gold);padding:13px 18px;background:#f0ece1;font-size:13px;line-height:1.9;color:#5d6c60;margin:0 0 25px}
+.branch-note b{color:var(--wine);display:block;font-size:11px;letter-spacing:2px;margin-bottom:3px}
+.options{display:grid;gap:11px}
+.option{width:100%;display:flex;align-items:flex-start;text-align:left;gap:18px;padding:16px 20px;border:1px solid #dbd2c3;border-radius:8px;background:#fffcf5;transition:background .15s,border-color .15s,transform .15s;line-height:1.85;color:var(--ink)}
+.option:hover{border-color:#c59e73;background:#f8f1e4;transform:translateX(2px)}.option.selected{border-color:var(--wine);background:#f6e9df;box-shadow:inset 3px 0 0 var(--wine)}
+.letter{flex:0 0 31px;width:31px;height:31px;border:1px solid #cbb99d;border-radius:50%;display:grid;place-items:center;font:15px var(--serif);color:var(--wine);margin-top:1px}
+.option.selected .letter{background:var(--wine);border-color:var(--wine);color:white}
+.option-copy{flex:1;font-size:15px}.option-check{margin-top:6px;color:var(--wine);opacity:0}.option.selected .option-check{opacity:1}
+.quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px}
+.keyboard-hint{font-size:12px;color:#8a9187;line-height:1.7}
+.quiz-footer{display:flex;justify-content:space-between;align-items:center;margin-top:17px;gap:16px;font-size:12px;color:var(--muted)}
+.quiz-footer button{border:none;background:none;text-decoration:underline;color:var(--muted);font-size:12px;cursor:pointer}
+.result-shell{max-width:930px;margin:29px auto}
+.result-cover{position:relative;display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden;background:var(--ink);color:#f8f1df;border-radius:13px;box-shadow:var(--shadow);min-height:400px;border:1px solid #304f48}
+.result-cover:before{content:"";position:absolute;inset:14px;border:1px solid #a8987038;border-radius:4px;pointer-events:none}
+.cover-copy{padding:48px 24px 44px 52px;position:relative;z-index:1}
+.cover-kicker{font-size:12px;letter-spacing:3px;color:#e1c58e}.cover-name{font:clamp(45px,5vw,72px) var(--serif);margin:24px 0 9px;letter-spacing:7px;color:#f8e9bf}
+.cover-title{font:21px var(--serif);letter-spacing:2px;margin:0 0 15px;color:#fff8e9}.cover-quote{font:15px/2 var(--serif);color:#d6e3d8;max-width:410px}
+.cover-divider{width:47px;height:2px;background:#c4a877;margin:20px 0}
+.cover-foot{font-size:12px;letter-spacing:2px;color:#c4d3c8}
+.result-illustration{display:grid;place-items:center;position:relative;overflow:hidden;min-height:360px;background:radial-gradient(circle at 55% 37%,#47695e 0%,#29483f 42%,#213b37 73%)}
+.moon-disc{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 34% 33%,#fbefca,#d5ba80 78%);box-shadow:0 0 0 20px #f5e5ae0b,0 0 0 55px #eac88b09,0 0 0 93px #eac88b05;display:grid;place-items:center;color:#6d342d;font:119px var(--serif);letter-spacing:-3px;position:relative}
+.moon-disc:before,.moon-disc:after{content:"";position:absolute;border-radius:50%;width:17px;height:17px;background:#9e504e;opacity:.3}.moon-disc:before{left:-40px;top:30px}.moon-disc:after{right:-34px;bottom:25px}
+.result-watermark{position:absolute;bottom:30px;font:13px var(--serif);letter-spacing:9px;color:#ebddbf8c}
+.result-tagrow{display:flex;gap:9px;flex-wrap:wrap;margin:19px 0 28px}.tag{padding:7px 13px;font-size:12px;border-radius:99px;border:1px solid #cbb896;color:#6d5f4d;background:#faf3e5}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-bottom:18px}
+.result-panel{padding:27px 30px;background:var(--paper);border:1px solid #ded2c0;border-radius:10px;line-height:1.95}
+.result-panel h3{font:22px var(--serif);margin:0 0 12px;letter-spacing:2px}.result-panel p{color:#5b665d;font-size:14px;margin:0}
+.result-panel.full{grid-column:1 / -1}
+.section-pre{font-size:11px;color:var(--wine);font-weight:700;letter-spacing:2px;margin-bottom:11px}
+.secondary-person{display:flex;align-items:center;gap:22px}
+.secondary-glyph{flex:0 0 85px;width:85px;height:85px;display:grid;place-items:center;background:#e6e7d9;color:var(--wine);border:1px solid #c8b997;border-radius:50%;font:34px var(--serif)}
+.secondary-person h3{margin-bottom:5px}
+.trajectory{display:flex;align-items:stretch;justify-content:space-between;gap:6px;margin:17px 0 2px}
+.track-node{flex:1;background:#f5eddd;border:1px solid #dfd4c0;padding:14px 10px;border-radius:8px;text-align:center}
+.track-node small{display:block;font-size:11px;color:var(--muted);letter-spacing:1px}.track-node b{font-size:15px;display:block;font-weight:600;margin-top:5px}
+.track-arrow{align-self:center;color:var(--wine);font:21px var(--serif)}
+.memory-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.memory-list li{padding:12px 14px;border-left:2px solid #c9ad77;background:#f6efe1;font-size:13px;line-height:1.8;color:#50635a}
+.axes{display:grid;gap:15px}
+.axis-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.axis-head strong{font-weight:700;color:var(--ink)}
+.axis-track{position:relative;height:8px;border-radius:20px;background:linear-gradient(90deg,#e3e1d4 0%,#b8d0c2 50%,#b38a68 100%)}
+.axis-track:before{position:absolute;content:"";left:50%;width:1px;height:18px;top:-5px;background:#7c8e7e80}
+.axis-dot{position:absolute;top:50%;height:15px;width:15px;border-radius:50%;background:var(--wine);border:2px solid white;box-shadow:0 0 0 1px var(--wine);transform:translate(-50%,-50%)}
+.result-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px 8px;flex-wrap:wrap}
+.result-bottom .share-buttons{display:flex;gap:9px;flex-wrap:wrap}
+.fine-print{color:var(--muted);font-size:11px;line-height:1.9;max-width:530px}
+.toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;padding:12px 22px;background:#274339;color:white;border-radius:8px;box-shadow:0 7px 22px #0002;transition:.2s;z-index:9;font-size:13px;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{top:12px;left:12px;z-index:100;background:white;padding:10px}
+@media(max-width:780px){
+ .intro-content{grid-template-columns:1fr}.intro-copy{padding:50px 27px 24px}.intro-title{font-size:51px}.intro-stats{margin-top:29px}
+ .art-panel{min-height:250px;max-height:310px}.palace-art{min-height:320px}
+ .art-panel:before{display:none}.below-intro{grid-template-columns:1fr}.promise{padding:17px 20px}
+ .question-card{padding:34px 22px 25px}.question-title{font-size:23px}
+ .result-cover{grid-template-columns:1fr}.cover-copy{padding:43px 32px 26px}.result-illustration{min-height:230px}
+ .moon-disc{width:155px;height:155px;font-size:75px}.result-watermark{bottom:14px}
+ .result-grid{grid-template-columns:1fr}.result-panel{padding:22px 21px}.result-panel.full{grid-column:auto}
+}
+@media(max-width:480px){
+ .wrap{width:calc(100% - 26px)}.topbar{padding:18px 0 14px}.brand{font-size:14px}.issue{font-size:9px}
+ .intro-shell{margin-top:15px}.intro-copy{padding:43px 24px 26px}.intro-title{font-size:42px}.intro-subtitle{font-size:16px}
+ .intro-description{font-size:13px}.start-actions{gap:11px;margin-top:24px}
+ .primary-btn,.secondary-btn{padding:13px 18px;font-size:13px}
+ .intro-stat{min-width:auto;flex:1;padding:0 8px}.intro-stat b{font-size:25px}
+ .quiz-layout{margin-top:23px}.chapter-title{font-size:23px}.question-count{font-size:24px}.question-card{padding:30px 18px 23px}
+ .question-title{font-size:20px}.option{padding:13px 12px;gap:11px}.letter{width:27px;height:27px;flex-basis:27px}.option-copy{font-size:14px}
+ .keyboard-hint{display:none}.quiz-actions .primary-btn{flex:1}.result-tagrow{margin-top:15px}
+ .memory-list{grid-template-columns:1fr}.secondary-person{align-items:flex-start;gap:13px}
+ .secondary-glyph{flex-basis:62px;width:62px;height:62px;font-size:26px}
+ .track-node{padding:10px 3px}.track-node b{font-size:12px}
+ .footer{display:block;text-align:center}.footer span:last-child{display:block;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#app">跳转到内容</a>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><span class="brand-seal" aria-hidden="true">宫</span><span>宫墙性格志</span></div>
+    <div class="issue">THE PALACE PERSONALITY · VOL. 01</div>
+  </header>
+  <div class="hairline"></div>
+  <main id="app" aria-live="polite"></main>
+  <footer class="footer">
+    <span>原创剧情人格测试 · 仅供娱乐与自我探索</span>
+    <span>《甄嬛传》非官方同人企划 · 不隶属任何版权方 · 所有答题数据仅保存在本机</span>
+  </footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+
+
+const TRAITS = [
+  {label:"锋芒表达", low:"含蓄", high:"鲜明"},
+  {label:"谋略方式", low:"直觉行动", high:"审慎布局"},
+  {label:"情感投入", low:"自持疏离", high:"深情相待"},
+  {label:"风险边界", low:"愿意信任", high:"谨慎设防"},
+  {label:"自主意识", low:"借势协作", high:"独立做主"},
+  {label:"成就取向", low:"安稳自在", high:"积极争取"}
+];
+// 向量顺序与 TRAITS 一一对应；标定值 -2~2，仅用于娱乐型人格相似度，不是临床量表。
+const CHARACTERS = [
+  {name:"甄嬛", archetype:"清醒的破局者", glyph:"嬛", vector:[0,2,1,1,2,2],
+   motto:"心有柔软，亦有破局之力。", portrait:"你能体察情绪，也会在局势改变时重新寻找出路。你不迷信一种方法，重要的是守住真正想守住的东西。",
+   strength:"擅长从细节拼出全局，并在退让与出击之间找到时机。", shadow:"有时习惯独自承担，难以坦然向别人示弱。",
+   bond:"你珍视被理解的关系，但会用时间检验信任。", fate:"你最终学会改变棋局，而不只是等待命运落子。"},
+  {name:"沈眉庄", archetype:"清醒的理想主义者", glyph:"眉", vector:[-1,0,2,0,2,0],
+   motto:"身处风雨，也要留一身风骨。", portrait:"你温柔有礼，却有不可轻易跨越的原则。比起一时的输赢，你更在乎做过的选择是否对得起自己。",
+   strength:"情绪稳定、待人真诚，在关键处敢于坚持。", shadow:"对失望的人和事，偶尔会关上门而不再解释。",
+   bond:"你不求热闹的交际，只愿与懂你的人长久相伴。", fate:"你守住了自己的分寸，也留下了令人信服的风骨。"},
+  {name:"安陵容", archetype:"敏感的观察者", glyph:"容", vector:[-1,1,0,2,-1,2],
+   motto:"听得见细语，也渴望被看见。", portrait:"你对气氛和他人的变化十分敏锐，常常比旁人更早察觉暗流。被认可会让你迸发惊人的潜力。",
+   strength:"心思细、学习快，懂得在不利条件下寻找机会。", shadow:"容易把外界评价放得太重，反而低估自己的价值。",
+   bond:"你期待稳定的回应与被珍惜的感觉，也需要学习主动表达需求。", fate:"当你不再只向别人证明自己，才会发现真正的底气。"},
+  {name:"华妃", archetype:"炽烈的掌控者", glyph:"华", vector:[2,-2,2,-1,0,2],
+   motto:"宁可灿烂，不肯黯淡。", portrait:"你热烈、骄傲，愿意为在乎的人与事用尽全力。你不擅长假装无所谓，喜怒也因此格外真切。",
+   strength:"有行动力、有担当，能在关键时刻鼓舞身边人。", shadow:"急于求成或过度投入时，容易忽略局势的复杂。",
+   bond:"你需要坦诚和重视，最难忍受敷衍与冷漠。", fate:"你的光芒不必靠压过谁证明，学会放手后反而更加耀眼。"},
+  {name:"皇后宜修", archetype:"隐忍的布局者", glyph:"宜", vector:[-1,2,-1,2,1,2],
+   motto:"落子之前，先看全盘。", portrait:"你习惯在公开表态前先整理信息，善于从长远角度安排事情。掌握节奏让你感到踏实。",
+   strength:"耐心、克制、组织能力强，能把复杂事务理出线索。", shadow:"过度追求确定性，可能让自己陷入持续的紧绷。",
+   bond:"你更相信长期兑现的承诺，而不是一时动听的话。", fate:"真正的安定不只是局面可控，也来自对不确定的接纳。"},
+  {name:"端妃", archetype:"沉静的长期主义者", glyph:"端", vector:[-2,2,0,2,1,1],
+   motto:"不争一时，而观千秋。", portrait:"你不急于显露锋芒，更愿意等待信息充分再行动。沉默不是没有主见，而是一种对节奏的把握。",
+   strength:"能忍耐、擅长判断大势，很少被短期情绪裹挟。", shadow:"长期压抑想法，可能错过本该主动争取的机会。",
+   bond:"你珍惜少而精的关系，不轻易许诺，却愿意兑现。", fate:"你在漫长岁月里蓄起力量，最终走向自己选择的方向。"},
+  {name:"敬妃", archetype:"稳健的守护者", glyph:"敬", vector:[-2,1,2,1,0,-1],
+   motto:"安稳并非退缩，守护也是力量。", portrait:"你体贴稳重，知道什么值得争，什么不必争。比起耀眼的胜利，你更看重身边人的平安与日常的踏实。",
+   strength:"可靠、有耐心，能为纷乱的环境带来秩序。", shadow:"有时太习惯照顾别人，而忘记自己也值得被照顾。",
+   bond:"你用持久的行动表达关心，不常说漂亮话却值得托付。", fate:"你不追逐喧嚣，也能把日子经营成安宁的归处。"},
+  {name:"曹琴默", archetype:"精明的经营者", glyph:"琴", vector:[-1,2,1,2,-1,2],
+   motto:"先看清筹码，再做出选择。", portrait:"你有敏锐的现实感，懂得评估资源、风险和机会。你努力争取的背后，往往是对重要之人的保护欲。",
+   strength:"擅于协商与权衡，能迅速找到可行方案。", shadow:"太常为未来做打算，可能让当下失去轻松感。",
+   bond:"你重视实际的支持，也会尽力给关系提供保障。", fate:"当你不再把安全感全押在别人身上，便拥有更稳的归宿。"},
+  {name:"叶澜依", archetype:"不羁的自由主义者", glyph:"澜", vector:[2,-1,1,0,2,-2],
+   motto:"宁听心声，不困于高墙。", portrait:"你坦率、独立，不愿只为迎合他人而生活。对于真正认可的人和事，你会毫不吝啬地付出勇气。",
+   strength:"有鲜明个性，敢于拒绝，也敢于保护珍视的一切。", shadow:"对束缚过于敏感时，可能过早切断沟通的可能。",
+   bond:"你需要彼此尊重、保有空间的关系。", fate:"你终于走向自己选择的远方，把自由还给了自己。"},
+  {name:"淳贵人", archetype:"真诚的快乐主义者", glyph:"淳", vector:[1,-2,2,-2,0,-2],
+   motto:"愿心里总有春天。", portrait:"你对世界保有好奇，容易看见生活里值得开心的小事。你待人真诚，常能为周围人带来轻松的空气。",
+   strength:"亲和、乐观，拥有感染他人的生活热情。", shadow:"有时容易相信表象，需要为自己的善意加一点保护。",
+   bond:"你喜欢不必猜来猜去的友谊，真诚对你而言最重要。", fate:"愿你的赤诚始终被珍惜，也渐渐长出保护自己的智慧。"},
+  {name:"祺贵人", archetype:"外显的竞争者", glyph:"祺", vector:[2,-1,-1,-1,-2,2],
+   motto:"要争取的，就大胆开口。", portrait:"你行动很快，清楚自己想被看见、想被认可。面对竞争，你不太愿意把机会拱手让人。",
+   strength:"敢表现、敢争取，常能把想法迅速推进。", shadow:"太在意比较或阵营评价，会让判断被他人的声音左右。",
+   bond:"你希望得到明确回应，也需要能互相鼓励的伙伴。", fate:"当胜负之外也有值得珍惜的事，你的锋芒会更加从容。"},
+  {name:"欣贵人", archetype:"耿直的实干者", glyph:"欣", vector:[2,-1,0,0,2,0],
+   motto:"心里有数，嘴上也不绕弯。", portrait:"你爽快、务实，不喜欢把简单事情说得复杂。比起故作高深，你更相信事实和行动。",
+   strength:"坦诚有效率，擅长在混乱中说出问题所在。", shadow:"说话太快时，可能让善意被误解为锋利。",
+   bond:"你欣赏不拐弯抹角的人，也愿意为朋友仗义执言。", fate:"你凭清醒和实在，走出了不必委曲求全的路。"},
+  {name:"浣碧", archetype:"执着的追求者", glyph:"碧", vector:[0,1,1,1,0,2],
+   motto:"不甘平凡，也不愿辜负自己。", portrait:"你有敏锐的自尊心和向上生长的愿望，愿意为一个目标付出持久努力。你在情感里也盼望被平等对待。",
+   strength:"有韧劲、有计划，懂得给自己寻找新的可能。", shadow:"偶尔被比较与期待牵动，忘了肯定已经拥有的东西。",
+   bond:"你珍惜郑重的承诺，也在意自己是否被真正看见。", fate:"你学会从自己的尺度定义圆满，而非只追逐他人的位置。"},
+  {name:"崔槿汐", archetype:"圆融的协调者", glyph:"槿", vector:[-1,2,2,1,0,-1],
+   motto:"明白人心，也守护人心。", portrait:"你擅长倾听、留意关系中的细小变化，懂得什么时候安慰，什么时候提醒。温柔与判断力在你身上并不冲突。",
+   strength:"善于调和矛盾、把握分寸，是值得信任的支持者。", shadow:"总替别人安排周全，可能让自己的愿望被放到最后。",
+   bond:"你重视细水长流的信任，喜欢彼此成全的关系。", fate:"你以通透和真诚，为自己与他人留下一处安心之地。"},
+  {name:"甄玉娆", archetype:"坚定的自我主义者", glyph:"娆", vector:[1,0,2,-1,2,-1],
+   motto:"一生一愿，不负本心。", portrait:"你灵动而有主见，可以温柔地相处，也能清晰地说不。你并不拒绝亲密，只是希望它建立在尊重之上。",
+   strength:"重视尊严与自主，敢在关键时刻做自己的决定。", shadow:"太坚持独立时，可能不愿向值得信任的人求助。",
+   bond:"你追求真诚平等、让彼此都能舒展的感情。", fate:"你守住心意，也争取到不必扮演别人的人生。"},
+  {name:"余莺儿", archetype:"灵活的机会主义者", glyph:"莺", vector:[2,-1,-1,0,-1,2],
+   motto:"看见机会，就愿意试一试。", portrait:"你对机会非常敏锐，敢主动展示自己的本领。比起原地等待，你更喜欢为想要的结果做点什么。",
+   strength:"适应力强、有表现欲，敢在变化中寻找突破。", shadow:"着急获得认可时，可能忽略长期信任比短期光彩更重要。",
+   bond:"你希望被欣赏，也适合结交能给出坦率反馈的人。", fate:"当技巧与真本事并行，你终能得到属于自己的舞台。"}
+];
+
+const QUESTIONS = [{"id":1,"title":"初入宫中，第一次与同院的小主们见面，你会如何表现？","options":["主动与大家交谈，迅速活跃气氛。","找机会展现自己的特别之处。","礼貌应答，先观察大家的性格。","安静地待着，不急于被人认识。"],"scores":[[2,-1,1,-1,1,0],[2,0,-1,0,1,2],[-1,1,0,1,0,0],[-2,0,0,1,1,-1]]},{"id":2,"title":"你发现掌事姑姑对不同的人说了两套完全不同的话，你会？","options":["当面指出矛盾，避免误会扩大。","暗暗记下细节，寻找更多证据。","不轻易参与，只管做好自己的事。","故意多问几句，试探她真正的意图。"],"scores":[[2,-1,0,-1,2,0],[-1,2,0,2,0,0],[-2,0,-1,1,0,-1],[1,2,0,1,1,1]]},{"id":3,"title":"与你交好的小主被误会偷拿宫花，众人都不愿替她说话，你会？","options":["当众站出来解释，哪怕自己被牵连。","私下告诉她自己知道的线索。","找可信的人一起帮她查清事实。","暂时不介入，以免事情越闹越大。"],"scores":[[2,-1,2,-2,1,0],[-1,1,2,1,0,-1],[0,2,2,1,0,1],[-2,1,-1,2,1,0]]},{"id":4,"title":"分配住处前，你有机会表达一次意愿，你会？","options":["接受上位者安排，顺势而为。","先询问熟悉规矩之人的意见。","比较各处优劣，再自己做决定。","宁选偏远但自在的地方，也不想受约束。"],"scores":[[-1,-1,0,-1,-2,-1],[-1,1,1,1,-1,0],[0,2,0,1,2,0],[-1,0,0,0,2,-2]]},{"id":5,"title":"宫中要举办赏菊宴，你准备如何打扮？","options":["穿最亮眼的一身，既然去了就要令人难忘。","符合规矩、得体即可，没必要突出。","挑一件独特的首饰，让人留下印象。","穿得低调舒适，安心欣赏宴席。"],"scores":[[2,-1,0,-1,0,2],[-1,0,0,1,0,-1],[1,2,0,0,1,2],[-2,0,0,1,2,-2]]},{"id":6,"title":"一位颇有权势的妃嫔邀请你加入她的阵营，你会？","options":["直接答应，有靠山总比孤身一人强。","当面婉拒，即便可能得罪对方。","表面答应，但悄悄给自己留好退路。","不急于表态，先了解她的处境和目的。"],"scores":[[1,-1,0,-1,-2,2],[2,-1,0,1,2,-1],[-1,2,-1,2,0,1],[-1,2,0,2,1,0]]},{"id":7,"title":"最亲近的朋友得到了你也十分想要的赏赐，你会？","options":["真心为她高兴，主动替她庆祝。","心里有点失落，但仍然为她开心。","表达祝福后，把精力放回自己身上。","暂时减少来往，不想让比较影响心情。"],"scores":[[1,-1,2,-1,0,-1],[-1,0,2,0,0,0],[0,1,0,1,2,2],[-2,0,-2,2,1,0]]},{"id":8,"title":"旧事未了，新的考验又来了。","options":["","","",""],"scores":[[2,-1,0,0,2,1],[-1,1,0,1,0,0],[-1,2,0,2,1,2],[0,1,1,1,-1,1]],"fork":{"from":3,"mapping":["help","quiet","help","quiet"]},"branches":{"help":{"title":"你出面帮助过的人，悄悄托你转交一封来历不明的密信。你会？","lead":"你曾在风波中出手相助，因此收获了对方的信任。如今，这份信任成了新的考验。","options":["直接表明立场，不愿掺和不清楚的事。","先核对密信来源，再决定是否帮忙。","顺藤摸瓜，查查背后究竟是谁在设局。","借熟识的掌事之人，试探其中隐情。"]},"quiet":{"title":"有人利用你当时的沉默散布流言，暗示你也牵涉其中。你会？","lead":"你当时没有站到台前，却依然被人卷进流言。你需要为自己找到新的位置。","options":["立即公开反驳，表明与自己无关。","搜集能证明自己清白的证据。","暂时不动声色，等散布流言的人露出破绽。","请双方共同认识的人出面澄清。"]}}},{"id":9,"title":"有位宫人开始向你打听家中的私事，你会？","options":["坦诚相告，觉得没什么不能说的。","只聊一些无关紧要的内容。","先问对方为何突然对这些感兴趣。","微笑转移话题，不透露任何细节。"],"scores":[[1,-1,2,-2,0,0],[-1,0,0,1,0,0],[1,2,0,2,1,0],[-2,1,-1,2,2,0]]},{"id":10,"title":"宫宴上临时缺一位会吟诗的人，而你恰好擅长，你会？","options":["主动起身，抓住表现机会。","稍作准备，有把握后再上前。","只有在朋友鼓励下才愿意尝试。","把机会留给更希望表现的人。"],"scores":[[2,-1,0,-1,2,2],[1,1,0,1,1,1],[-1,0,2,0,-1,1],[-2,0,1,1,1,-2]]},{"id":11,"title":"有人愿意庇护你，但要你日常大小事务都向她汇报，你会？","options":["欣然接受，安全和稳定更重要。","暂时跟随，以后的事以后再看。","与她商量清楚，哪些事情由自己做主。","婉拒好意，不愿生活受人掌控。"],"scores":[[-1,-1,0,-1,-2,-1],[0,1,0,1,-1,0],[1,2,0,1,2,1],[1,0,0,1,2,-2]]},{"id":12,"title":"与你有旧交的小主卷入风波，而你本可以置身事外，你会？","options":["亲自陪她寻找证据，尽力帮助她。","告诉她你掌握的线索，让她自己处理。","联络可信任的人，一起帮助她渡过难关。","暂时保持距离，先弄清楚真实情况。"],"scores":[[1,-1,2,-1,1,0],[-1,1,1,2,0,0],[0,2,2,1,-1,1],[-2,1,-2,2,1,0]]},{"id":13,"title":"站在不同的位置，都会遇见新的试探。","options":["","","",""],"scores":[[2,-1,1,1,2,1],[-1,2,0,2,0,0],[0,2,0,1,1,1],[1,1,2,0,-1,0]],"fork":{"from":6,"mapping":["join","apart","join","apart"]},"branches":{"join":{"title":"你所依附的妃嫔要求你指责另一位小主，但证据并不充分。你会？","lead":"当初你选择靠近权势，如今有人希望你用自己的声音换取庇护。","options":["当场拒绝，即使因此失去庇护。","先稳住对方，再私下调查事实。","提出其他办法，争取时间和空间。","找双方都能接受的人从中周旋。"]},"apart":{"title":"宫中两股势力同时试探你，希望你表明立场。你会？","lead":"当初你没有轻易入局，现在各方都想知道你究竟站在哪一边。","options":["坦率说明态度，不愿反复试探。","分别听取双方想法，再作判断。","利用双方透露的信息，推断真正局势。","请共同熟识的人从中缓和关系。"]}}},{"id":14,"title":"有人当众错怪了你，许多人的目光都落在你身上，你会？","options":["立刻反驳，不愿受半分委屈。","冷静讲明事实，让大家自行判断。","等众人散去，再私下解释清楚。","暂时不作回应，避免事态扩大。"],"scores":[[2,-2,0,-1,2,1],[1,1,0,1,1,1],[-1,1,1,2,0,-1],[-2,1,-1,2,0,-1]]},{"id":15,"title":"如果可以向上位者请求一项赏赐，你最想得到什么？","options":["更高的地位，让自己的话更有分量。","更多资源，让自己有能力完成重要的事。","让在意的人过得平安幸福。","远离纷争，拥有轻松安宁的生活。"],"scores":[[1,1,0,1,1,2],[0,2,0,1,1,2],[0,0,2,-1,0,-1],[-1,0,0,1,2,-2]]},{"id":16,"title":"曾经伤害过你的人，如今主动向你道歉，你会？","options":["如果道歉真诚，愿意重新建立信任。","接受道歉，但明确之后相处的边界。","暂不表态，观察对方后续行动。","不再往来，有些关系不必修复。"],"scores":[[0,-1,2,-2,0,0],[1,0,1,1,2,0],[-1,2,0,2,0,0],[1,-1,-2,2,2,0]]},{"id":17,"title":"面对人生的重要决定，身边人都给出不同意见，你会？","options":["相信自己的心意，即使不被理解。","尊重长辈或更有经验之人的安排。","听取意见，但最终由自己决定。","把决定交给最值得信赖的人。"],"scores":[[2,-1,0,-1,2,0],[-1,0,1,0,-2,0],[0,2,0,1,2,1],[-1,0,2,-2,-2,0]]},{"id":18,"title":"风波未散，你仍需选择自己的立场。","options":["","","",""],"scores":[[2,-1,2,-1,1,0],[-1,1,2,1,-1,0],[-1,2,0,2,0,1],[0,2,0,2,2,1]],"fork":{"from":12,"mapping":["help","apart","help","apart"]},"branches":{"help":{"title":"你们找到关键线索，但公开它可能牵连到你自己。你会？","lead":"你决定与旧友共同面对风波，现在真相就在眼前，代价却也摆在面前。","options":["立即公开，清白和公道比自身风险重要。","私下向有分量的人说明情况。","先等旁证齐全，再采取行动。","保存证据、布置退路之后再揭露。"]},"apart":{"title":"你得到能证明旧友清白的证物，但出面可能令自己受疑。你会？","lead":"你选择保持距离，却意外成为掌握关键证物的人。","options":["亲自出面作证，不愿朋友继续受冤。","通过可靠的人私下递交证据。","等调查正式开始，再择机提供。","留好副本并确保自身安全，再作决定。"]}}},{"id":19,"title":"有人把一件过错推到你身上，而证据并不完整，你会？","options":["当场据理力争，坚决不接受指责。","梳理时间线，寻找相关证人。","拿已有证据与对方私下谈清楚。","设计机会，让真相在众人面前自然浮现。"],"scores":[[2,-2,0,0,2,0],[0,2,0,1,1,0],[-1,1,1,1,0,0],[1,2,0,2,2,1]]},{"id":20,"title":"你有机会获得晋升，但意味着更多责任和压力，你会？","options":["主动争取，这是证明自己能力的机会。","如果能借此完成重要目标，就值得。","只要不破坏现有生活的安稳，可以考虑。","比起名位，我更希望保有轻松和自由。"],"scores":[[2,0,0,0,1,2],[0,2,1,1,0,2],[-1,1,1,1,0,-1],[-1,0,0,0,2,-2]]},{"id":21,"title":"旧人旧事，仍可能叩响你的宫门。","options":["","","",""],"scores":[[1,-1,2,-2,1,0],[-1,2,1,2,0,0],[0,1,0,1,2,0],[-1,0,-2,2,2,-1]],"fork":{"from":16,"mapping":["open","open","closed","closed"]},"branches":{"open":{"title":"旧人再次遇到困难，希望你伸出援手，这次可能牵连你。你会？","lead":"你选择保留这段关系，而对方再次带着求助来到你面前。","options":["毫不犹豫地帮助，对方依然很重要。","先确认事情真相，再决定如何帮忙。","给出必要的建议，让对方自己承担选择。","这次不再介入。"]},"closed":{"title":"后来听闻旧人处境艰难，有人问你愿不愿意帮忙。你会？","lead":"你曾与对方保持距离，如今有了重新决定如何相处的机会。","options":["念及旧情，仍然愿意亲自帮助。","托可信之人提供一些帮助。","只提供解决方向，不重新卷入。","继续守住边界，尊重彼此如今的距离。"]}}},{"id":22,"title":"多年以后，回望宫廷岁月，你最希望留下什么？","options":["曾改变不公平的规矩，拥有影响局势的力量。","勇敢争取并完成了真正想做的事。","让在意的人安心，也对得起自己的真心。","不必被任何人记住，只要按心意生活。"],"scores":[[1,2,0,1,1,2],[1,0,0,0,2,2],[-1,0,2,-1,0,-1],[-1,-1,0,1,2,-2]]}];
+
+const VERSION = 1;
+const STORE_KEY = "palace-personality-v1";
+const ABC = ["A","B","C","D"];
+const CHAPTERS = [
+  {start:1,end:6,roman:"壹",name:"初入宫门",desc:"初来乍到，你还不知道谁是真心，谁是试探。"},
+  {start:7,end:11,roman:"贰",name:"深宫浮沉",desc:"宫中渐渐有了熟人，也有了利益的牵扯。"},
+  {start:12,end:17,roman:"叁",name:"人心难测",desc:"决定谁值得信任，也决定哪些底线不可逾越。"},
+  {start:18,end:22,roman:"肆",name:"终局抉择",desc:"走过风雨，真正珍视的东西渐渐明朗。"}
+];
+const ART = `
+<svg class="palace-art" viewBox="0 0 520 550" role="img" aria-label="夕照下的宫墙、飞檐、池水与盛开的花">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.2" y2="1"><stop stop-color="#f8ecd7"/><stop offset="1" stop-color="#dce8df"/></linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bad2c4"/><stop offset="1" stop-color="#88aa9e"/></linearGradient>
+  </defs>
+  <rect width="520" height="550" fill="url(#sky)"/>
+  <circle cx="348" cy="142" r="84" fill="#f3d9a1" opacity=".95"/>
+  <circle cx="348" cy="142" r="111" fill="none" stroke="#d5b77d" opacity=".24"/>
+  <path d="M-20 318Q99 253 204 303T540 289V470H-20Z" fill="#cbdccf" opacity=".6"/>
+  <path d="M-10 347Q105 307 190 327T530 320V470H-10Z" fill="#a7c6b5" opacity=".72"/>
+  <path d="M0 368H520V550H0Z" fill="#b8d2c2"/>
+  <path d="M0 458H520V550H0Z" fill="url(#water)"/>
+  <path d="M75 438H505" stroke="#f0ddaa" stroke-width="3" opacity=".6"/>
+  <path d="M80 457H495M112 480H420M43 505H330M251 525H512" stroke="#e2ebd7" stroke-width="2" opacity=".6"/>
+  <!-- main palace roof and tiers -->
+  <path d="M116 281L139 280Q160 280 174 266L267 208Q286 196 302 211L397 267Q419 280 442 282L470 282Q444 300 414 294L130 294Q101 301 76 285Z" fill="#6c8579" stroke="#34534c" stroke-width="3"/>
+  <path d="M134 277Q188 272 267 224Q290 209 308 223Q393 276 434 278" fill="none" stroke="#cfac69" stroke-width="6"/>
+  <path d="M163 294H413V317H163Z" fill="#b66f55" stroke="#6d493e" stroke-width="2"/>
+  <path d="M179 317H399V396H179Z" fill="#dfb992"/>
+  <path d="M190 321H211V393H190ZM246 321H267V393H246ZM303 321H324V393H303ZM365 321H386V393H365Z" fill="#9f5949"/>
+  <path d="M220 335H359V396H220Z" fill="#e8d4af" stroke="#845b46" stroke-width="2"/>
+  <path d="M250 354H331V397H250Z" fill="#294a44"/>
+  <path d="M289 354V398" stroke="#d0aa6e" stroke-width="3"/>
+  <circle cx="281" cy="378" r="2.5" fill="#dcb986"/><circle cx="297" cy="378" r="2.5" fill="#dcb986"/>
+  <path d="M116 397H463L490 420H93Z" fill="#c8906c" stroke="#6d5446" stroke-width="2"/>
+  <path d="M101 420H480V445H101Z" fill="#dfba8e"/>
+  <path d="M58 447H518V460H58Z" fill="#b07c61"/>
+  <!-- side buildings -->
+  <path d="M-20 347Q43 315 74 329L137 361Q148 367 160 365L174 366Q158 380 137 377H0Z" fill="#6d887c" stroke="#36584d" stroke-width="2"/>
+  <path d="M-10 381H148V435H-10Z" fill="#cca789"/><path d="M3 389H20V435H3ZM40 389H58V435H40ZM79 389H97V435H79Z" fill="#9a5848"/>
+  <path d="M418 348Q460 321 484 336L546 369Q530 380 502 376H406Z" fill="#6d887c" stroke="#36584d" stroke-width="2"/>
+  <path d="M432 382H533V437H432Z" fill="#cca789"/><path d="M448 389H467V436H448ZM487 389H506V436H487Z" fill="#995849"/>
+  <!-- near pond and lily pads -->
+  <path d="M-10 477Q110 442 196 470T530 469V550H-10Z" fill="#93b6a7" opacity=".6"/>
+  <ellipse cx="91" cy="507" rx="38" ry="7" fill="#658f78"/><path d="M91 507L118 494Q104 492 91 507Z" fill="#97bca3"/>
+  <ellipse cx="400" cy="513" rx="27" ry="6" fill="#658f78"/><ellipse cx="452" cy="533" rx="33" ry="6" fill="#658f78"/>
+  <path d="M82 492Q75 480 84 477Q94 478 90 489Q94 474 101 478Q107 485 91 493" fill="#c76f62" stroke="#9f5e55" stroke-width="1.5"/>
+  <path d="M389 501Q383 490 392 487Q399 492 394 502Q404 491 410 494Q417 505 394 505" fill="#d2a079" stroke="#ad775d" stroke-width="1"/>
+  <!-- ornamental birds -->
+  <path d="M133 161q15-9 28 0q12-11 24-6M202 132q11-8 22 0q10-8 21-5" fill="none" stroke="#667c70" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- blossom branch at top -->
+  <path d="M507 0Q471 83 431 111M488 34Q451 50 420 42M465 74Q476 90 492 93" stroke="#667466" stroke-width="6" fill="none"/>
+  <g fill="#c47062"><circle cx="440" cy="110" r="8"/><circle cx="453" cy="87" r="7"/><circle cx="421" cy="45" r="8"/><circle cx="468" cy="45" r="7"/><circle cx="490" cy="93" r="7"/><circle cx="502" cy="22" r="8"/></g>
+  <g fill="#e2aaa0"><circle cx="444" cy="101" r="4"/><circle cx="415" cy="44" r="4"/><circle cx="483" cy="86" r="4"/></g>
+</svg>`;
+
+function newState() {
+  return {v:VERSION,view:"quiz",index:0,answers:Array(22).fill(null)};
+}
+function restoreState() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+    if(!raw || raw.v !== VERSION || !Array.isArray(raw.answers) || raw.answers.length !== QUESTIONS.length) return null;
+    const answers = raw.answers.map(a => Number.isInteger(a) && a >= 0 && a < 4 ? a : null);
+    let index = Number.isInteger(raw.index) ? Math.min(21,Math.max(0,raw.index)) : 0;
+    const missing = answers.findIndex(a => a === null);
+    if(missing !== -1 && index > missing) index = missing;
+    const view = raw.view === "result" && missing === -1 ? "result" : "quiz";
+    return {v:VERSION,view,index,answers};
+  } catch (_) {return null;}
+}
+let state = restoreState() || newState();
+let savedExists = !!restoreState();
+let screen = "intro";
+let toastTimer = null;
+const root = document.getElementById("app");
+
+function saveState() {
+  try {localStorage.setItem(STORE_KEY,JSON.stringify(state));savedExists=true;} catch (_) {}
+}
+function clearState() {
+  try {localStorage.removeItem(STORE_KEY);} catch (_) {}
+  savedExists=false;
+}
+function e(t) {
+  return String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function chapterOf(id) {return CHAPTERS.find(c=>id>=c.start&&id<=c.end);}
+function resolvedQuestion(index, answers=state.answers) {
+  const q = QUESTIONS[index];
+  if(!q.fork) return {title:q.title,options:q.options,lead:"",isBranch:false,branch:null};
+  const prior = answers[q.fork.from-1];
+  const key = q.fork.mapping[prior===null?0:prior];
+  const b = q.branches[key];
+  return {...b,isBranch:true,branch:key};
+}
+function progressMarkup(current) {
+  const pct=(current/QUESTIONS.length*100).toFixed(2);
+  return `<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="22" aria-valuenow="${current}" aria-label="答题进度"><i style="width:${pct}%"></i></div>`;
+}
+function renderIntro() {
+  const hasProgress = savedExists && (state.answers.some(v=>v!==null) || state.view==="result");
+  return `<section class="intro-shell">
+    <div class="intro-content">
+      <div class="intro-copy">
+        <div class="eyebrow">一纸入宫令 · 你的故事从此开始</div>
+        <h1 class="intro-title">若你入宫，<br><em>能活成谁？</em></h1>
+        <p class="intro-subtitle">一念成局，一生见心。</p>
+        <p class="intro-description">这里没有绝对正确的答案。面对友情、权势、误解和自由，你的一次次选择，将写出独属于你的深宫故事。走过四章抉择，看看《甄嬛传》中谁与你最像。</p>
+        <div class="start-actions">
+          <button class="primary-btn" data-action="start">开启入宫之旅 ↗</button>
+          ${hasProgress?`<button class="secondary-btn" data-action="resume">${state.view==="result"?"查看上次结果":"继续上次答题"}</button>`:""}
+        </div>
+        <div class="intro-stats" aria-label="测试规模">
+          <div class="intro-stat"><b>22</b><small>剧情题目</small></div>
+          <div class="intro-stat"><b>16</b><small>人物结局</small></div>
+          <div class="intro-stat"><b>4</b><small>动态分支</small></div>
+        </div>
+      </div>
+      <div class="art-panel">${ART}<span class="floating-petal one" aria-hidden="true"></span><span class="floating-petal two" aria-hidden="true"></span><span class="floating-petal three" aria-hidden="true"></span></div>
+    </div>
+  </section>
+  <section class="below-intro" aria-label="玩法特色">
+    <article class="promise"><span class="num">01 / 故事记忆</span><b>你的选择，会留下回声</b><p>前面怎样面对风波，后面就会遇见怎样的新考验。</p></article>
+    <article class="promise"><span class="num">02 / 两难抉择</span><b>没有标准答案</b><p>每种选择都有自己的理由，不必迎合所谓的正确人格。</p></article>
+    <article class="promise"><span class="num">03 / 双重性格</span><b>主角色之外，还有内心的你</b><p>揭晓你的宫廷人格、隐藏特质和一路走来的抉择轨迹。</p></article>
+  </section>`;
+}
+function renderQuiz() {
+  const i=state.index,q=QUESTIONS[i],resolved=resolvedQuestion(i),ch=chapterOf(q.id),selected=state.answers[i];
+  const list=resolved.options.map((label,idx)=>`
+    <button class="option ${selected===idx?"selected":""}" data-option="${idx}" type="button"
+      aria-pressed="${selected===idx}" aria-label="选项${ABC[idx]}：${e(label)}">
+      <span class="letter" aria-hidden="true">${ABC[idx]}</span>
+      <span class="option-copy">${e(label)}</span><span class="option-check" aria-hidden="true">✓</span>
+    </button>`).join("");
+  return `<div class="quiz-layout">
+    <div class="quiz-head">
+      <div><div class="chapter-small">第${ch.roman}章 · ${e(ch.name)}</div><h1 class="chapter-title">${e(ch.name)}</h1><div class="chapter-desc">${e(ch.desc)}</div></div>
+      <div class="question-count">${String(i+1).padStart(2,"0")} <span>/ 22</span></div>
+    </div>
+    ${progressMarkup(i+1)}
+    <section class="question-card" aria-labelledby="q-title">
+      <div class="question-kicker">${resolved.isBranch?"命运回响 · 动态剧情":`宫廷抉择 · 第 ${String(i+1).padStart(2,"0")} 题`}</div>
+      ${resolved.isBranch?`<div class="branch-note"><b>因你此前的选择，故事发生了变化</b>${e(resolved.lead)}</div>`:""}
+      <h2 class="question-title" id="q-title">${e(resolved.title)}</h2>
+      <div class="options" role="group" aria-label="选择一个最接近你的答案">${list}</div>
+      <div class="quiz-actions">
+        <button class="secondary-btn" data-action="prev" ${i===0?"disabled":""}>← 上一题</button>
+        <div class="keyboard-hint">可按键盘 1—4 选择答案</div>
+        <button class="primary-btn" data-action="next" ${selected===null?"disabled":""}>${i===21?"揭晓我的命运 ↗":"下一题 →"}</button>
+      </div>
+    </section>
+    <div class="quiz-footer"><span>故事会在本机自动保存 · 不会上传你的答案</span><button data-action="home">返回首页</button></div>
+  </div>`;
+}
+function normalizedStats(answers, subset=null) {
+  const raw=Array(6).fill(0), variance=Array(6).fill(0);
+  const included=subset || QUESTIONS.map((_,i)=>i);
+  for(const i of included) {
+    const opt=answers[i];if(opt===null)continue;
+    const s=QUESTIONS[i].scores;
+    for(let d=0;d<6;d++){
+      const avg=s.reduce((tot,v)=>tot+v[d],0)/4;
+      const v=s.reduce((tot,row)=>tot+(row[d]-avg)**2,0)/4;
+      raw[d]+=s[opt][d]-avg;
+      variance[d]+=v;
+    }
+  }
+  return raw.map((v,d)=>Math.max(-2.5,Math.min(2.5,v/Math.sqrt(Math.max(variance[d],.001)))));
+}
+function cosine(a,b) {
+  const dot=a.reduce((sum,v,i)=>sum+v*b[i],0);
+  const al=Math.hypot(...a),bl=Math.hypot(...b);
+  return al<.00001||bl<.00001?0:dot/(al*bl);
+}
+// 轻量级的离线基线校准，减少未区分的随机答案过度集中到少数角色。
+const CHARACTER_PRIORS = [0.071, 0.1427, 0.0419, -0.0846, -0.039, -0.0299, -0.0472, 0.0535, -0.0146, -0.1665, -0.0143, -0.0706, 0.0925, 0.0149, 0.0406, 0.0096];
+function rankedCharacters(stats) {
+  return CHARACTERS.map((ch,index)=>({index,similarity:cosine(stats,ch.vector)+CHARACTER_PRIORS[index]}))
+    .sort((a,b)=>b.similarity-a.similarity || a.index-b.index);
+}
+function personalityResult(answers=state.answers){
+  if(answers.some(v=>v===null)) return null;
+  const stats=normalizedStats(answers);
+  const innerStats=normalizedStats(answers,[2,6,10,11,14,15,16,17,20,21]);
+  const mainRank=rankedCharacters(stats),main=CHARACTERS[mainRank[0].index];
+  const innerRank=rankedCharacters(innerStats).find(p=>p.index!==mainRank[0].index);
+  const inner=CHARACTERS[innerRank.index];
+  const ordered=stats.map((v,i)=>({i,v})).sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  const labels=ordered.slice(0,3).map(({i,v})=>v>=0?TRAITS[i].high:TRAITS[i].low);
+  const first=["主动结识","争取目光","审慎观察","安静蓄力"][answers[0]];
+  const middle=["并肩守护","低调助力","合力破局","静观其变"][answers[11]];
+  const last=["改写规则","成就所愿","守护珍视","自在归心"][answers[21]];
+  const memories=[
+    [ "你曾主动帮助朋友查明真相，也因此被托付新的秘密。","你当时选择低调处理，却还是遇上了有关自己的流言。"][+![0,2].includes(answers[2])],
+    [ "你曾试着借势而行，后来也感受到了阵营的牵制。","你没有急着入局，却不得不面对来自各方的试探。"][+![0,2].includes(answers[5])],
+    [ "你选择与旧友共担风波，最终也直面真相的代价。","你与风波保持距离，后来却掌握了重要的证物。"][+![0,2].includes(answers[11])],
+    [ "你曾愿意为旧人保留余地，也再次衡量了信任。","你为旧人保留边界，并在新的求助前重新做了选择。"][+![0,1].includes(answers[15])]
+  ];
+  return {main,inner,stats,innerStats,labels,first,middle,last,memories};
+}
+function renderAxes(stats) {
+  return TRAITS.map((t,i)=>{
+    const pct=Math.max(5,Math.min(95,50+stats[i]*18));
+    return `<div class="axis"><div class="axis-head"><span>${e(t.low)}</span><strong>${e(t.label)}</strong><span>${e(t.high)}</span></div>
+      <div class="axis-track" role="img" aria-label="${e(t.label)}：较偏向${e(pct>=50?t.high:t.low)}">
+        <span class="axis-dot" style="left:${pct.toFixed(1)}%"></span></div></div>`;
+  }).join("");
+}
+function renderResult() {
+  const r=personalityResult();
+  if(!r) {screen="quiz";state.index=state.answers.findIndex(v=>v===null);return renderQuiz();}
+  const {main,inner,stats,labels,first,middle,last,memories}=r;
+  document.title=`你是${main.name}｜宫廷人格测试`;
+  return `<section class="result-shell">
+    <div class="result-cover">
+      <div class="cover-copy">
+        <div class="cover-kicker">THE PALACE · 人格终章</div>
+        <h1 class="cover-name">${e(main.name)}</h1>
+        <div class="cover-title">${e(main.archetype)}</div>
+        <div class="cover-divider"></div>
+        <div class="cover-quote">「${e(main.motto)}」</div>
+        <div class="cover-foot">你的深宫命运，已然写就</div>
+      </div>
+      <div class="result-illustration" aria-label="${e(main.name)}的人物名章"><div class="moon-disc">${e(main.glyph)}</div><span class="result-watermark">宫墙性格志</span></div>
+    </div>
+    <div class="result-tagrow"><span class="tag">你的主角色 · ${e(main.name)}</span>${labels.map(l=>`<span class="tag">${e(l)}</span>`).join("")}</div>
+    <div class="result-grid">
+      <div class="result-panel full"><div class="section-pre">性格底色 / WHO YOU ARE</div><h3>你，是这样的${e(main.name)}</h3><p>${e(main.portrait)}</p></div>
+      <div class="result-panel"><div class="section-pre">天赋光芒 / YOUR STRENGTH</div><h3>你最动人的力量</h3><p>${e(main.strength)}</p></div>
+      <div class="result-panel"><div class="section-pre">温柔提醒 / YOUR BLIND SPOT</div><h3>你也需要的成长</h3><p>${e(main.shadow)}</p></div>
+      <div class="result-panel"><div class="section-pre">情感世界 / CONNECTIONS</div><h3>关系中的你</h3><p>${e(main.bond)}</p></div>
+      <div class="result-panel"><div class="section-pre">宫廷终章 / YOUR ENDING</div><h3>你的专属结局</h3><p>${e(main.fate)}</p></div>
+      <div class="result-panel full"><div class="section-pre">另一面 / YOUR INNER SELF</div>
+        <div class="secondary-person"><div class="secondary-glyph" aria-hidden="true">${e(inner.glyph)}</div>
+        <div><h3>你的内心，还住着${e(inner.name)}</h3><p>在信任、关系与价值选择上，你展现出「${e(inner.archetype)}」的一面。${e(inner.motto)}</p></div></div>
+      </div>
+      <div class="result-panel full"><div class="section-pre">成长轨迹 / YOUR JOURNEY</div><h3>走过宫门的三个瞬间</h3>
+        <div class="trajectory">
+          <div class="track-node"><small>初入宫门</small><b>${e(first)}</b></div><span class="track-arrow" aria-hidden="true">➜</span>
+          <div class="track-node"><small>风波之中</small><b>${e(middle)}</b></div><span class="track-arrow" aria-hidden="true">➜</span>
+          <div class="track-node"><small>终局选择</small><b>${e(last)}</b></div>
+        </div>
+      </div>
+      <div class="result-panel full"><div class="section-pre">剧情回响 / WHAT YOU LIVED THROUGH</div><h3>你的宫中人生回顾</h3>
+        <ul class="memory-list">${memories.map(s=>`<li>${e(s)}</li>`).join("")}</ul>
+      </div>
+      <div class="result-panel full"><div class="section-pre">性格倾向 / YOUR SIX DIMENSIONS</div><h3>你做选择时的六种倾向</h3>
+        <p style="margin-bottom:22px">这里显示的是你在本次故事里的相对倾向，不是能力高低，也不是心理学诊断。</p><div class="axes">${renderAxes(stats)}</div>
+      </div>
+    </div>
+    <div class="result-bottom">
+      <div class="fine-print">这一结果由22道娱乐性情境题生成，不代表真实人物评价或科学人格诊断。角色与故事均为非官方同人创作；不采集身份信息。</div>
+      <div class="share-buttons">
+        <button class="secondary-btn" data-action="copy">复制结果</button>
+        <button class="secondary-btn" data-action="poster">保存分享卡</button>
+        <button class="primary-btn" data-action="reset">重新入宫 ↗</button>
+      </div>
+    </div>
+  </section>`;
+}
+function render() {
+  document.title=screen==="result"?"你的宫廷人格｜宫墙性格志":"若你入宫，能活成谁？｜宫廷人格测试";
+  root.innerHTML=screen==="intro"?renderIntro():screen==="quiz"?renderQuiz():renderResult();
+}
+function toTop(){window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});}
+function selectOption(index) {
+  if(screen!=="quiz"||index<0||index>3)return;
+  const i=state.index,old=state.answers[i];
+  if(old!==index) {
+    const downstream={2:7,5:12,11:17,15:20};
+    if(Object.hasOwn(downstream,i)&&old!==null) {
+      const later=downstream[i],branch=QUESTIONS[later].fork;
+      if(branch.mapping[old]!==branch.mapping[index]) state.answers[later]=null;
+    }
+    state.answers[i]=index;
+    saveState();
+  }
+  render();
+  const active=root.querySelector(`[data-option="${index}"]`);
+  if(active) active.focus({preventScroll:true});
+}
+function changeQuestion(delta){
+  if(screen!=="quiz")return;
+  if(delta>0 && state.answers[state.index]===null)return;
+  if(delta>0 && state.index===21){
+    if(state.answers.some(x=>x===null)){
+      state.index=state.answers.findIndex(x=>x===null);
+      render();toTop();showToast("请先补完因剧情变化而需要重答的题目");
+    } else {
+      screen="result";state.view="result";saveState();render();toTop();
+    }
+    return;
+  }
+  state.index=Math.max(0,Math.min(21,state.index+delta));
+  state.view="quiz";saveState();render();toTop();
+}
+function showToast(message){
+  const t=document.getElementById("toast");
+  t.textContent=message;t.classList.add("show");
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),3000);
+}
+function resetGame(){
+  if(savedExists && state.answers.some(x=>x!==null) && !confirm("重新入宫会清除本机现有的答题进度与结果。确定重来吗？"))return;
+  clearState();state=newState();screen="quiz";saveState();render();toTop();
+}
+function resume(){
+  screen=state.view;render();toTop();
+}
+function copyFallback(s) {
+  const field=document.createElement("textarea");field.value=s;field.style.position="fixed";field.style.opacity="0";
+  document.body.appendChild(field);field.select();let ok=false;
+  try {ok=document.execCommand("copy");} catch(_){}
+  field.remove();return ok;
+}
+async function copyResult(){
+  const r=personalityResult();if(!r)return;
+  const url=location.href.split("#")[0].split("?")[0];
+  const content=`我的《甄嬛传》宫廷人格是「${r.main.name}」——${r.main.archetype}！\n内心的另一面是「${r.inner.name}」。\n${r.main.motto}\n来测测你是谁：${url}`;
+  try {
+    if(navigator.share && window.isSecureContext){
+      await navigator.share({title:"若你入宫，能活成谁？",text:content,url});
+      return;
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(content);showToast("结果已复制，去分享给朋友吧 🌸");return;
+    }
+    showToast(copyFallback(content)?"结果已复制，去分享给朋友吧 🌸":"复制失败，可尝试保存分享卡");
+  } catch(err) {
+    if(err && err.name==="AbortError")return;
+    try {
+      await navigator.clipboard.writeText(content);
+      showToast("结果已复制，去分享给朋友吧 🌸");
+    }catch(_) {showToast(copyFallback(content)?"结果已复制":"复制失败，可尝试保存分享卡");}
+  }
+}
+function roundedRect(ctx,x,y,w,h,r) {
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+}
+function wrapCanvasText(ctx,text,maxWidth) {
+  const rows=[];let line="";
+  for(const ch of text) {
+    if(ctx.measureText(line+ch).width>maxWidth && line){rows.push(line);line=ch;}
+    else line+=ch;
+  }
+  if(line)rows.push(line);
+  return rows;
+}
+function drawPoster(r) {
+  const canvas=document.createElement("canvas");canvas.width=1080;canvas.height=1440;
+  const x=canvas.getContext("2d");if(!x)throw Error("Canvas not supported");
+  x.fillStyle="#f8f1e5";x.fillRect(0,0,1080,1440);
+  x.strokeStyle="#bfa679";x.lineWidth=2;x.strokeRect(36,36,1008,1368);x.strokeRect(49,49,982,1342);
+  x.fillStyle="#26463d";x.fillRect(67,67,946,1250);
+  const g=x.createRadialGradient(560,375,90,520,420,650);g.addColorStop(0,"#527466");g.addColorStop(1,"#26463d");
+  x.fillStyle=g;x.fillRect(67,67,946,1050);
+  x.fillStyle="#f1d7a5";x.beginPath();x.arc(540,458,225,0,Math.PI*2);x.fill();
+  x.strokeStyle="rgba(237,210,159,.23)";x.lineWidth=2;[259,287,320].forEach(rad=>{x.beginPath();x.arc(540,458,rad,0,Math.PI*2);x.stroke();});
+  x.textAlign="center";
+  x.fillStyle="#f5e4bc";x.font='32px "Songti SC","SimSun",serif';x.fillText("宫 墙 性 格 志",540,149);
+  x.font='24px "Songti SC","SimSun",serif';x.fillText("THE PALACE · PERSONALITY",540,196);
+  x.fillStyle="#7d4037";x.font='bold 218px "Songti SC","SimSun",serif';x.fillText(r.main.glyph,540,540);
+  x.fillStyle="#f3dfb7";x.font='bold 94px "Songti SC","SimSun",serif';x.fillText(r.main.name,540,805);
+  x.fillStyle="#e4e5d3";x.font='39px "Songti SC","SimSun",serif';x.fillText(r.main.archetype,540,878);
+  x.strokeStyle="#bda078";x.beginPath();x.moveTo(410,920);x.lineTo(670,920);x.stroke();
+  x.fillStyle="#e7e0cd";x.font='30px "Songti SC","SimSun",serif';
+  wrapCanvasText(x,r.main.motto,750).forEach((line,i)=>x.fillText(line,540,987+i*52));
+  x.fillStyle="#f8f1e5";x.fillRect(67,1117,946,200);
+  x.fillStyle="#6a5546";x.font='27px "Songti SC","SimSun",serif';x.fillText(`内心的另一面 · ${r.inner.name}`,540,1192);
+  x.fillStyle="#876e50";x.font='24px "Songti SC","SimSun",serif';
+  const path=`${r.first}  →  ${r.middle}  →  ${r.last}`;
+  wrapCanvasText(x,path,825).forEach((line,i)=>x.fillText(line,540,1249+i*38));
+  x.fillStyle="#6b6a5e";x.font='22px "Songti SC","SimSun",serif';x.fillText("若你入宫，能活成谁？ · 非官方同人趣味测试",540,1371);
+  return canvas;
+}
+function savePoster(){
+  const r=personalityResult();if(!r)return;
+  try {
+    const canvas=drawPoster(r);
+    const downloadBlob=(blob)=>{
+      const u=URL.createObjectURL(blob);
+      const a=document.createElement("a");a.href=u;a.download=`宫廷人格-${r.main.name}.png`;document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(u),1000);
+      showToast("分享卡片已生成 🌸");
+    };
+    if(canvas.toBlob)canvas.toBlob(blob=>blob?downloadBlob(blob):showToast("无法导出图片，请尝试截图"),"image/png");
+    else {
+      const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download=`宫廷人格-${r.main.name}.png`;a.click();
+      showToast("分享卡片已生成 🌸");
+    }
+  } catch(err){showToast("图片生成失败，仍可直接截图分享");}
+}
+root.addEventListener("click",event=>{
+  const opt=event.target.closest("[data-option]");
+  if(opt){selectOption(Number(opt.dataset.option));return;}
+  const btn=event.target.closest("[data-action]");if(!btn)return;
+  switch(btn.dataset.action) {
+    case "start":resetGame();break;
+    case "resume":resume();break;
+    case "prev":changeQuestion(-1);break;
+    case "next":changeQuestion(1);break;
+    case "home":screen="intro";render();toTop();break;
+    case "reset":resetGame();break;
+    case "copy":copyResult();break;
+    case "poster":savePoster();break;
+  }
+});
+document.addEventListener("keydown",event=>{
+  if(screen!=="quiz"||event.altKey||event.ctrlKey||event.metaKey||event.isComposing)return;
+  if(/^[1-4]$/.test(event.key)){
+    event.preventDefault();selectOption(Number(event.key)-1);
+  }
+});
+render();
+
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"45c2bf8136a245cd97f1c2e9a96c0730","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
